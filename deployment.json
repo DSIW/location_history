@@ -1,0 +1,22 @@
+{
+    "assets_dir": "assets",
+    "images_dir": "images",
+    "css_dir": "assets/css",
+    "css_files": [
+        "style.css"
+    ],
+    "js_dir": "assets/js",
+    "js_files": [
+        "leaflet-heat.js",
+        "oboe-browser.min.js",
+        "script.js"
+    ],
+    "pages": [
+        "index.html"
+    ],
+    "remote": "uberspace:www/",
+    "urls": {
+        "staging": "stage.locationhistory.mluz.de",
+        "production": "locationhistory.mluz.de"
+    }
+}

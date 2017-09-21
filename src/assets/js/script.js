@@ -19,6 +19,17 @@ var map = L.map('map', {
 });
 heat = L.heatLayer([], {radius: HEAT_RADIUS, blur: HEAT_BLUR}).addTo(map)
 
+// map.on('click', function(ev) {
+//   $('#location').text(ev.latlng.lat + ", " + ev.latlng.lng)
+// });
+
+addOSMTileLayer = function() {
+  // add OSM tile layers
+  var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+  new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 19, attribution: osmAttrib}).addTo(map);
+}
+
 addMapBoxTileLayer = function() {
   accessToken = 'pk.eyJ1IjoiZHNpdyIsImEiOiJjaXB2bmt0M2wwMDVxaHdrc3AwM2N4OHk0In0.kHVayjzVrUycpA2prqRhOg';
   attribution = '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -89,7 +100,9 @@ parseJSONFile = function(file, ob) {
 /* https://github.com/davglass/prettysize */
 (function(){var sizes=["Bytes","kB","MB","GB","TB","PB","EB"];window.prettySize=function(e,s,i){var t,n;return sizes.forEach(function(n,o){i&&(n=n.slice(0,1));var r,B=Math.pow(1024,o);B>e||(r=(e/B).toFixed(1)+"",r.indexOf(".0")===r.length-2&&(r=r.slice(0,-2)),t=r+(s?"":" ")+n)}),t||(n=i?sizes[0].slice(0,1):sizes[0],t="0"+(s?"":" ")+n),t};}());
 
+
 $(function () {
+  // addOSMTileLayer()
   addMapBoxTileLayer()
 
   // init default config
