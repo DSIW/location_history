@@ -1,0 +1,42 @@
+RewriteEngine On
+
+# Redirect to TLS
+RewriteCond %{SERVER_PORT} !443
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Remove .html from URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ /%{REQUEST_URI}.html [L,QSA]
+
+# Handle 404
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . / [L,R=302]
+
+# DEFLATE compression
+<ifmodule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript text/javascript application/json image/svg+xml
+</ifmodule>
+
+# Caching
+<IfModule mod_headers.c>
+# WEEK
+    <FilesMatch "\.(png|jpe?g|gif|svg)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+
+# WEEK
+    <FilesMatch "\.(js|css)$">
+        Header set Cache-Control "max-age=604800"
+    </FilesMatch>
+</IfModule>
+
+# SEO Index
+<Files ~ "\.pdf$">
+    Header set X-Robots-Tag "noindex, nofollow"
+</Files>
+<Files ~ "\.(png|jpe?g|gif|svg)$">
+    Header set X-Robots-Tag "noindex"
+</Files>
