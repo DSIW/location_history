@@ -1,0 +1,37 @@
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin:0;
+  padding:0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  position: relative;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.page-footer {
+  padding-top: 0;
+}
+
+#fab {
+  position: absolute;
+  right: 1em;
+  bottom: 2em;
+  z-index: 100;
+}
+
+.hidden {
+  display: none;
+}

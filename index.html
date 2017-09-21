@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Location History</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main>
+            <div id="map"></div>
+
+            <a id="fab" class="btn-floating btn-large waves-effect waves-light blue modal-trigger" data-target="upload-modal"><i class="material-icons">add</i></a>
+
+            <div id="upload-modal" class="modal">
+                <div class="modal-content">
+                    <h4>Load Google Takeout JSON</h4>
+                    <ol>
+                        <li>Goto <a href="https://www.google.com/settings/takeout" target="_blank">Google Takeout</a></li>
+                        <li>Only select <b>Location History</b> as <b>JSON</b></li>
+                        <li>Unpack ZIP</li>
+                        <li>Load <b>Location History.json</b></li>
+                    </ol>
+                    <p><i class="material-icons tiny grey-text text-darken-2">info</i> Note: All processing and visualization happens on your computer!</p>
+                    <div id="dropzone" class="dropzone">
+                        <input type="file" name="file" class="hidden">
+                        <div class="dz-message btn blue waves-effect waves-light">Load file</div>
+                    </div>
+                    <div id="status" class="center blue-text">0%</div>
+                    <div class="progress grey lighten-2">
+                        <div class="determinate blue"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close btn-flat">Close</a>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class="footer-copyright blue-grey darken-3 white-text">
+                <div class="container">
+                    Location Visualizer by <a href="https://dsiw-it.de">DSIW</a>
+                    <a class="grey-text text-lighten-4 right" href="https://github.com/DSIW">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js"></script>
+    <script src="lib/leaflet-heat.js"></script>
+    <script src="lib/oboe-browser.min.js"></script>
+    <script src="script.js"></script>
+</html>
