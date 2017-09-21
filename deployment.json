@@ -16,7 +16,7 @@
     ],
     "remote": "uberspace:www/",
     "urls": {
-        "staging": "stage.locationhistory.mluz.de",
-        "production": "locationhistory.mluz.de"
+        "staging": "stage.locationhistory.dsiw-it.de",
+        "production": "locationhistory.dsiw-it.de"
     }
 }
