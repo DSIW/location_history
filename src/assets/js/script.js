@@ -107,7 +107,13 @@ $(function () {
 
   // init default config
   $('.modal').modal({
-    dismissible: false
+    dismissible: false,
+    ready: function(modal, trigger) {
+      $('#fab').addClass('scale-out'); // open
+    },
+    complete: function() {
+      $('#fab').removeClass('scale-out'); // close
+    }
   });
 
   setTimeout(function() {
