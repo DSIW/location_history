@@ -36,6 +36,10 @@ main {
   display: none;
 }
 
+.status {
+  margin-top: 1em;
+}
+
 footer .logo {
   position: absolute;
   margin: 0 auto;
