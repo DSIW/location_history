@@ -33,10 +33,18 @@
                         <li>Load <b>Location History.json</b></li>
                     </ol>
                     <p><i class="material-icons tiny grey-text text-darken-2">info</i> Note: All processing and visualization happens on your computer!</p>
-                    <div id="dropzone" class="dropzone">
-                        <input type="file" name="file" class="hidden">
-                        <div class="dz-message btn blue waves-effect waves-light">Load file</div>
-                    </div>
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="dz-message btn blue waves-effect waves-light">
+                                <span>File</span>
+                                <input type="file" id="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path" type="text">
+                            </div>
+                        </div>
+                    </form>
+                    <input type="file" name="file" class="hidden" id="file">
                     <div id="status" class="center blue-text">0%</div>
                     <div class="progress grey lighten-2">
                         <div class="determinate blue"></div>
@@ -60,7 +68,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js"></script>
     <script src="assets/js/leaflet-heat.js"></script>
     <script src="assets/js/oboe-browser.min.js"></script>
     <script src="assets/js/script.js"></script>

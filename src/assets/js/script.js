@@ -1,5 +1,3 @@
-Dropzone.autoDiscover = false;
-
 INIT_LON = 52.51663871100423;
 INIT_LAT = 13.412246704101564;
 INIT_ZOOM = 4;
@@ -120,14 +118,8 @@ $(function () {
     $(".modal").modal('open');
   }, 500);
 
-  dropzone = new Dropzone("#dropzone", {
-    url: '/',
-    previewsContainer: document.createElement('div'), // >> /dev/null
-    acceptedFiles: ".json",
-    uploadMultiple: false,
-    clickable: true,
-    accept: function (file, done) {
-      processFile(file);
-    }
+  // For mobile browsers, allow direct file selection as well
+  $('#file').change(function() {
+    processFile(this.files[0]);
   });
 });
